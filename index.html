@@ -51,6 +51,16 @@
       color: green;
       margin-top: 10px;
     }
+
+    #controls {
+      margin: 20px;
+    }
+    #controls button {
+      font-size: 24px;
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+    }
   </style>
 </head>
 <body>
@@ -60,6 +70,13 @@
     <div id="exit">出口</div>
   </div>
   <div id="message"></div>
+
+<div id="controls">
+  <button onclick="moveSelected(0, -1)">↑</button><br>
+  <button onclick="moveSelected(-1, 0)">←</button>
+  <button onclick="moveSelected(1, 0)">→</button><br>
+  <button onclick="moveSelected(0, 1)">↓</button>
+</div>
 
   <script>
     const board = document.getElementById('board');
@@ -144,25 +161,6 @@
     });
 
     render();
-  
-function move(direction) {
-  if (!selected) return;
-  let dx = 0, dy = 0;
-  if (direction === 'up') dy = -1;
-  if (direction === 'down') dy = 1;
-  if (direction === 'left') dx = -1;
-  if (direction === 'right') dx = 1;
-  movePiece(dx, dy);
-}
-
-</script>
-
-<div id="controls" style="text-align: center; margin-top: 10px;">
-  <button onclick="move('up')">↑</button><br>
-  <button onclick="move('left')">←</button>
-  <button onclick="move('down')">↓</button>
-  <button onclick="move('right')">→</button>
-</div>
-
+  </script>
 </body>
 </html>
